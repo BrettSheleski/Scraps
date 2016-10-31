@@ -8,7 +8,7 @@ namespace Scrapheap
 {
     public static class AlliterationDetector
     {
-        private static string[] wordsToIgnore = new string[] {"I", "A", "ABOUT", "AN", "AND", "ARE", "AS", "AT", "BE",
+        private static readonly string[] wordsToIgnore = new string[] {"I", "A", "ABOUT", "AN", "AND", "ARE", "AS", "AT", "BE",
         "BY", "COM", "FOR", "FROM", "HOW", "IN", "IS", "IT",
         "OF", "ON", "OR", "THAT", "THE", "THIS", "TO", "WAS",
         "WHAT", "WHEN", "WHERE", "WHO", "WILL", "WITH"};
@@ -16,33 +16,15 @@ namespace Scrapheap
         public static bool IsAlliteration(string phrase)
         {
             if (string.IsNullOrWhiteSpace(phrase))
-                throw new ArgumentException("phrase must not be a null or empty string.");
+                throw new ArgumentException();
 
-            string[] words = phrase.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            int numberOfStartingCharacters = phrase.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                                                   .Select(word => word.ToUpper())
+                                                   .Where(word => !wordsToIgnore.Contains(word))
+                                                   .GroupBy(word => word[0])
+                                                   .Count();
 
-            char? firstCharacter = null;
-
-            string upperCaseWord;
-
-            foreach (var word in words)
-            {
-                upperCaseWord = word.ToUpper();
-
-                if (!wordsToIgnore.Contains(upperCaseWord))
-                {
-                    if (firstCharacter == null)
-                    {
-                        // this is the first candidate word, so use its first letter
-                        firstCharacter = upperCaseWord[0];
-                    }
-                    else if (word.ToUpper()[0] != firstCharacter.Value)
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return true;
+            return numberOfStartingCharacters == 1;
         }
     }
 }
