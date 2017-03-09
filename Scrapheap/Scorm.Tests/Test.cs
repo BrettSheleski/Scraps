@@ -53,7 +53,7 @@ namespace Scorm.Tests
 
             manifest.Resources.First().Dependencies.AddRange(manifest.Resources.Skip(7));
 
-
+            
 
             Item item;
             for (int i = 0; i < 5; ++i)
@@ -70,10 +70,15 @@ namespace Scorm.Tests
                     {
                         Identifier = $"SubItem_ID{i}_{j}",
                         Title = $"Item #{i}-{j}",
-                        Resource = manifest.Resources.OrderBy(x => Guid.NewGuid()).FirstOrDefault()
+                        Resource = manifest.Resources.OrderBy(x => Guid.NewGuid()).FirstOrDefault(),
+                        
                     });
                 }
 
+                for (int k = 0; k < 5; ++k) {
+                    item.Items.Last().Parameters.Add($"key_{i}_{k}", $"val_{i}_{k}");
+                }
+                
                 manifest.Organizations.Default.Items.Add(item);
             }
 

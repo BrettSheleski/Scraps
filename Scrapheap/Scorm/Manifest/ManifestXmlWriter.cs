@@ -75,6 +75,7 @@ namespace Scorm.Manifest
             return new XElement(ns + "item",
                                 new XAttribute("identifier", item.Identifier),
                                 item.Resource == null ? null : new XAttribute("identifierref", item.Resource.Identifier),
+                                item.Parameters.Count == 0 ? null : new XAttribute("parameters", "?" + string.Join("&", item.Parameters.AllKeys.Select(key => $"{System.Web.HttpUtility.UrlEncode(key)}={System.Web.HttpUtility.UrlEncode(item.Parameters[key])}"))),
                                 new XElement(ns + "title", new XText(item.Title)),
                                 item.Items.Select(i => ToXElement(i, ns))
                                );
