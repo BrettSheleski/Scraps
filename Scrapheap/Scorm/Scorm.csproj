@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A3A3A21-F623-478E-AC3E-90D5F7F0EC01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Scorm</RootNamespace>
+    <AssemblyName>Scorm</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Manifest\Manifest.cs" />
+    <Compile Include="Manifest\SchemaVersion.cs" />
+    <Compile Include="Manifest\Organization.cs" />
+    <Compile Include="Manifest\OrganizationCollection.cs" />
+    <Compile Include="Manifest\Item.cs" />
+    <Compile Include="Manifest\ItemCollection.cs" />
+    <Compile Include="Manifest\IItemContainer.cs" />
+    <Compile Include="Manifest\Resource.cs" />
+    <Compile Include="Manifest\ResourceType.cs" />
+    <Compile Include="Manifest\ScormType.cs" />
+    <Compile Include="Manifest\File.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Manifest\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
