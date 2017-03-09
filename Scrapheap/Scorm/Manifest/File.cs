@@ -1,4 +1,4 @@
-﻿namespace Scorm
+﻿namespace Scorm.Manifest
 {
 	public class File
 	{

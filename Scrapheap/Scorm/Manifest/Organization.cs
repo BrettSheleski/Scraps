@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Scorm
+namespace Scorm.Manifest
 {
 	public class Organization : IItemContainer
 	{

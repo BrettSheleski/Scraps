@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System.Xml.Linq;
 using System.Linq;
 
-namespace Scorm
+namespace Scorm.Manifest
 {
 	public class Item : IItemContainer
 	{
@@ -16,15 +16,5 @@ namespace Scorm
 		public NameValueCollection Paramters { get; } = new  NameValueCollection();
 
 		public Resource Resource { get; set; }
-
-		internal XElement ToXElement(XNamespace ns)
-		{
-			return new XElement(ns + "item",
-								new XAttribute("identifier", this.Identifier),
-								Resource == null ? null : new XAttribute("identifierref", Resource.Identifier),
-								new XElement(ns + "title", new XText(Title)),
-			                    Items.Select(item => item.ToXElement(ns))
-			                   );
-		}
 	}
 }

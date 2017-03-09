@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
 
-namespace Scorm
+namespace Scorm.Manifest
 {
 	public class OrganizationCollection : List<Organization>
 	{

@@ -1,5 +1,4 @@
-﻿using System;
-namespace Scorm
+﻿namespace Scorm.Manifest
 {
 	public enum SchemaVersion
 	{
