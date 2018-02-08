@@ -19,6 +19,8 @@ namespace Sudoku.Core
                 throw new ArgumentException($"all values within {nameof(initialValues)} must have {Width} values", nameof(initialValues));
 
 
+
+
             Initialize(initialValues.SelectMany(x => x));
         }
 
