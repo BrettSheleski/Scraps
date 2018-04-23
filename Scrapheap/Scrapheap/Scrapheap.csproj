@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlliterationDetector.cs" />
+    <Compile Include="Extensions\IDbCommandExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Math\AllPositiveIntegers.cs" />
     <Compile Include="Math\Fibonacci.cs" />
