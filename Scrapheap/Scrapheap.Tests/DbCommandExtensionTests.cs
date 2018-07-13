@@ -22,25 +22,66 @@ namespace Scrapheap.Tests
                 DataSource = "AppDvSqlLi1",
                 InitialCatalog = "brett_data"
             };
-            IEnumerable<College> colleges;
+
             List<College> collegeList;
 
             using (var connection = new System.Data.SqlClient.SqlConnection(csBuilder.ConnectionString))
-            using (var command = connection.CreateCommand())
+            using (ConnectionOpener.Open(connection))
+            using (var command = connection.CreateCommand("SELECT * FROM college"))
             {
-                connection.Open();
-                command.CommandText = "SELECT * FROM college";
-
-                colleges = command.GetEnumerable<College>();
-
-                collegeList = colleges.ToList();
+                // Act
+                collegeList = command.ToList<College>();
             }
 
+            // Verify
+            Assert.IsTrue(collegeList.Count > 0);
+        }
 
-            // Act
+        [TestMethod]
+        public void MaybeDoesSomething_WithGoodNames()
+        {
+            // Setup
+            var csBuilder = new System.Data.SqlClient.SqlConnectionStringBuilder()
+            {
+                IntegratedSecurity = true,
+                DataSource = "AppDvSqlLi1",
+                InitialCatalog = "brett_data"
+            };
+            
+            List<CollegeWithGoodNames> collegeList;
+
+            using (var connection = new System.Data.SqlClient.SqlConnection(csBuilder.ConnectionString))
+            using (ConnectionOpener.Open(connection))
+            using (var command = connection.CreateCommand("SELECT * FROM college"))
+            {
+                // Act
+                collegeList = command.ToList<CollegeWithGoodNames>();
+            }
 
             // Verify
+            Assert.IsTrue(collegeList.Count > 0);
+        }
 
+        [TestMethod]
+        public void UseConnectionShorthand()
+        {
+            // Setup
+            var csBuilder = new System.Data.SqlClient.SqlConnectionStringBuilder()
+            {
+                IntegratedSecurity = true,
+                DataSource = "AppDvSqlLi1",
+                InitialCatalog = "brett_data"
+            };
+
+            List<CollegeWithGoodNames> collegeList;
+
+            using (var connection = new System.Data.SqlClient.SqlConnection(csBuilder.ConnectionString))
+            {
+                // Act
+                collegeList = connection.ToList<CollegeWithGoodNames>("SELECT * FROM college");
+            }
+
+            // Verify
             Assert.IsTrue(collegeList.Count > 0);
         }
 
@@ -49,7 +90,28 @@ namespace Scrapheap.Tests
             public int UnitID { get; set; }
             public string name { get; set; }
             public string city { get; set; }
+            
             public string state_code { get; set; }
+        }
+
+        class CollegeWithGoodNames
+        {
+            [BindFieldTo("UnitID")]
+            public int Id { get; set; }
+
+            [BindFieldTo("name")]
+            public string Name { get; set; }
+
+            [BindFieldTo("city")]
+            public string City { get; set; }
+
+            [BindFieldTo("state_code")]
+            public string StateCode { get; set; }
+
+            public string ThisPropertyDoesNotExistInDb { get; set; }
+
+            [BindFieldTo("null_column")]
+            public string NullColumn { get; set; }
         }
     }
 }

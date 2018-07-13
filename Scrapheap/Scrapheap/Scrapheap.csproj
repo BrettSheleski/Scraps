@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlliterationDetector.cs" />
+    <Compile Include="ConnectionOpener.cs" />
     <Compile Include="Extensions\IDbCommandExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="FieldAttribute.cs" />
+    <Compile Include="FieldBaseAttribute.cs" />
     <Compile Include="Math\AllPositiveIntegers.cs" />
     <Compile Include="Math\Fibonacci.cs" />
     <Compile Include="Math\Geometry\Polygon.cs" />

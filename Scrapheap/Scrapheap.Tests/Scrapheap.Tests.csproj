@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="AlliterationDetector.cs" />
     <Compile Include="DbCommandExtensionTests.cs" />
+    <Compile Include="GetDelegateTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
