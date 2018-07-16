@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math", "Math\Math.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math.Tests", "Math.Tests\Math.Tests.csproj", "{7E558445-ECC9-4CCF-95F0-43C4EEE010C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandelbrot", "Mandelbrot\Mandelbrot.csproj", "{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +197,26 @@ Global
 		{7E558445-ECC9-4CCF-95F0-43C4EEE010C0}.Release|x64.Build.0 = Release|Any CPU
 		{7E558445-ECC9-4CCF-95F0-43C4EEE010C0}.Release|x86.ActiveCfg = Release|Any CPU
 		{7E558445-ECC9-4CCF-95F0-43C4EEE010C0}.Release|x86.Build.0 = Release|Any CPU
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|ARM.ActiveCfg = Debug|ARM
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|ARM.Build.0 = Debug|ARM
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|ARM.Deploy.0 = Debug|ARM
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|x64.ActiveCfg = Debug|x64
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|x64.Build.0 = Debug|x64
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|x64.Deploy.0 = Debug|x64
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|x86.ActiveCfg = Debug|x86
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|x86.Build.0 = Debug|x86
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Debug|x86.Deploy.0 = Debug|x86
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|Any CPU.ActiveCfg = Release|x86
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|ARM.ActiveCfg = Release|ARM
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|ARM.Build.0 = Release|ARM
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|ARM.Deploy.0 = Release|ARM
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|x64.ActiveCfg = Release|x64
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|x64.Build.0 = Release|x64
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|x64.Deploy.0 = Release|x64
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|x86.ActiveCfg = Release|x86
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|x86.Build.0 = Release|x86
+		{D04FB1AD-7BB1-4F64-BE70-BC918E5352D1}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
